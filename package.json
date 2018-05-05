@@ -1,6 +1,6 @@
 {
   "name": "egg-passport-multi-type",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Username and password authentication strategy for Passport and Node.js.",
   "eggPlugin": {
     "name": "passportMultiType"

@@ -1,12 +1,10 @@
 'use strict';
-
-const debug = require('debug')('egg-passport-local');
-const LocalStrategy = require('passport-multi-type').Strategy;
+ 
+const LocalStrategy = require('passport-multi-type');
 
 module.exports = app => {
-  const config = app.config.passportLocal;
+  const config = app.config.passportMultiType;
   config.passReqToCallback = true;
-
   app.passport.use(new LocalStrategy(config, (req,type, username, password, done) => {
     // format user
     const user = {
@@ -14,10 +12,7 @@ module.exports = app => {
       type,
       username,
       password,
-    };
-    debug('%s %s get user: %j', req.method, req.url, user);
-
-    // let passport do verify and call verify hook
+    }; 
     app.passport.doVerify(req, user, done);
   }));
 };
